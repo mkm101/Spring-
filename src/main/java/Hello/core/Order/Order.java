@@ -57,6 +57,6 @@ public class Order {
                 ", itemName='" + itemName + '\'' +
                 ", itemPrice=" + itemPrice +
                 ", discountPrice=" + discountPrice +
-                '}';
+                '}'; // 단축키 무엇
     }
 }
