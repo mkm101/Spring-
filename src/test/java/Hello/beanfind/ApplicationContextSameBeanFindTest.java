@@ -26,9 +26,9 @@ public class ApplicationContextSameBeanFindTest {
     }
 
     @Test
-    @DisplayName("타입으로 조회시, 같은 타입이 둘 이상 있으면, 빈 이름을 지정하면 된다.")
+    @DisplayName("타입으로 조회 시 같은 타입이 둘 이상 있으면, 빈 이름을 지정하면 됨")
     void findBeanByName() {
-        MemberRepository memberRepository = ac.getBean(MemberRepository.class);
+        MemberRepository memberRepository = ac.getBean("memberRepository1",MemberRepository.class);
         assertThat(memberRepository).isInstanceOf(MemberRepository.class);
     }
 
@@ -46,18 +46,13 @@ public class ApplicationContextSameBeanFindTest {
 
     @Configuration
     static class SameBeanConfig {
-
         @Bean
         public MemberRepository memberRepository1() {
             return new MemoryMemberRepository();
         }
-
         @Bean
         public MemberRepository memberRepository2() {
             return new MemoryMemberRepository();
         }
-
     }
-
-
 }
